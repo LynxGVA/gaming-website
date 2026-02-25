@@ -31,4 +31,4 @@ This project is part of my frontend portfolio and was built to practice:
 ## Author
 Viktor Grygoriev  
 Toronto, ON  
-LinkedIn: https://linkedin.com/in/viktor-grygoriev
+LinkedIn: www.linkedin.com/in/viktor-grygoriev-44846b3b3
