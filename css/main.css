@@ -149,7 +149,7 @@ header nav ul li.btn a:hover,
 }
 
 .trending {
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .trending h3 {
@@ -157,18 +157,28 @@ header nav ul li.btn a:hover,
     font-size: 31px;
 }
 
-.trending .see--all,
+.trending .see--all,    
 .projects .see--all {
     display: block;
     width: fit-content;
-    margin: 30px auto 0;
-    text-align: center;
+    margin: 0;
 
     color: white;
     background: #000;
     border-radius: 5px;
     padding: 12px 30px;
     transition: 0.3s;
+}
+
+.trending-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.trending .item {
+    text-align: center;
 }
 
 .trending .see--all:hover,
@@ -181,6 +191,24 @@ header nav ul li.btn a:hover,
     justify-content: space-between;
     padding: 50px 0;
     gap: 20px;
+}
+
+.trending .block {
+    text-align: center;
+}
+
+.trending .followers {
+    display: inline-flex;   
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.trending .followers img {
+    width: 16px;
+    height: 16px;
+    display: block; 
 }
 
 .big--text {
@@ -411,6 +439,18 @@ footer > p {
     .trending .games {
         flex-direction: column;
         align-items: center;
+    }
+
+    .trending-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .trending .see--all {
+        width: 100%;        
+        text-align: center;
+        padding: 14px 0;
     }
 
     .features .info .block {
