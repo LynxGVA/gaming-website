@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,800&display=swap');
 
-* {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
-/* Main Page */
 
 body {
     font-family: "Poppins", sans-serif;
@@ -21,44 +22,44 @@ a {
 
 img {
     max-width: 100%;
+    display: block;
 }
 
 .wrapper {
-    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(74, 40, 0, 1) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(74, 40, 0, 1) 100%);
     width: 100%;
     overflow-x: hidden;
 }
 
 .container {
-    width: 1400px;
+    max-width: 1400px;
+    width: 90%;
     margin: 0 auto;
 }
 
 header {
     padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
 }
 
-header .logo, footer .blocks .logo {   
+header .logo,
+footer .blocks .logo {
     text-transform: uppercase;
     font-size: 29px;
     font-weight: 800;
-}   
+}
 
 header nav {
-    float: right;
-    width: 50%;
+    width: auto;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
-    justify-content: space-between;
-    z-index: 2;
-    position: relative;
-}
-
-header nav ul li {
-    display: inline-block;
+    gap: 90px;
 }
 
 header nav ul li a {
@@ -72,34 +73,36 @@ header nav ul li.active::after {
     height: 5px;
     background: #DC7000;
     border-radius: 10px;
-    position: relative;
-    top: 10px;
-    left: -15px;
+    margin-top: 8px;
 }
 
 header nav ul li:not(.active):not(.btn) a:hover {
     border-bottom: 5px solid #DC7000;
 }
 
-header nav ul li.btn a, .email .block button {
+header nav ul li.btn a,
+.email .block button {
     background: #FA9021;
     padding: 9px 17px;
     border-radius: 5px;
-    transition: all 500ms ease;
+    transition: 0.3s;
 }
 
-header nav ul li.btn a:hover, .email .block button:hover {
+header nav ul li.btn a:hover,
+.email .block button:hover {
     background: #502a01;
 }
 
 .hero {
-    padding-bottom: 100px;
-    position: relative;
     z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 40px;
 }
 
 .hero--info {
-    width: 530px;
+    max-width: 530px;
     padding-top: 70px;
 }
 
@@ -120,28 +123,30 @@ header nav ul li.btn a:hover, .email .block button:hover {
     margin: 30px 0;
 }
 
-.hero--info .btn, .hero-about .info .btn {
-    background: linear-gradient(180deg,rgba(250, 131, 5, 1) 0%, rgba(251, 158, 60, 1) 100%);
+.hero--info .btn,
+.hero-about .info .btn {
+    background: linear-gradient(180deg, rgba(250, 131, 5, 1) 0%, rgba(251, 158, 60, 1) 100%);
     color: white;
     border-radius: 50px;
     padding: 15px 30px;
     border: 0;
-    transition: all 500ms ease;
+    transition: 0.3s;
     font-size: 17px;
 }
 
-.hero--info .btn:hover, .hero-about .info .btn:hover {
-    cursor: pointer;
-    transform: scale(1.1);
+.hero--info .btn:hover,
+.hero-about .info .btn:hover {
+    transform: scale(1.05);
 }
 
 .hero img {
-    position: absolute;
-    top: -150px;
-    right: 0px;
+    align-self: flex-start;
+    margin-right: 30px;
+    max-width: 750px;
+    width: 100%;
+    transform: translateY(-150px);
+    pointer-events: none;
 }
-
-/* Game Section */
 
 .trending {
     padding-top: 50px;
@@ -152,38 +157,30 @@ header nav ul li.btn a:hover, .email .block button:hover {
     font-size: 31px;
 }
 
-
-.trending .see--all, .projects .see--all {
-    color: white;
-    background: #000000;
-    border-radius: 5px; 
-    padding: 12px 30px;
-    float: right;
+.trending .see--all,
+.projects .see--all {
     display: block;
-    transition: all 500ms ease;
+    width: fit-content;
+    margin: 30px auto 0;
+    text-align: center;
+
+    color: white;
+    background: #000;
+    border-radius: 5px;
+    padding: 12px 30px;
+    transition: 0.3s;
 }
 
-.trending .see--all:hover, .projects .see--all:hover {
-    transform: scale(1.1)
+.trending .see--all:hover,
+.projects .see--all:hover {
+    transform: scale(1.05);
 }
 
 .trending .games {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     padding: 50px 0;
-}
-
-.trending .games span {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-}
-
-.trending .games span img {
-    position: relative;
-    top: 5px;
-    margin-right: 7px;
+    gap: 20px;
 }
 
 .big--text {
@@ -191,90 +188,91 @@ header nav ul li.btn a:hover, .email .block button:hover {
     font-size: 35px;
     font-weight: 600;
     text-align: center;
-    width: 800px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .banner {
-    padding: 80px 0;
+    padding: 100px 0;     
 }
 
 .banner h3 {
     font-size: 30px;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .banner p {
+    max-width: 600px;      
     line-height: 170%;
-    margin-bottom: 30px;
-    width: 550px;
+    margin-bottom: 40px;
 }
 
 .banner img {
     width: 100%;
-    margin-bottom: 30px;
+    max-width: 1100px;     
+    border-radius: 12px;
+    display: block;
+    margin: 40px auto 0;
 }
 
 .features {
     background: url(../img/features-background.png) no-repeat center center fixed;
-    background-size: cover ;
+    background-size: cover;
     padding: 80px 0;
 }
 
-.features h3, .features p {
-    margin-bottom: 20px;
+.features h3,
+.features p {
     text-align: center;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-.features h3 {
-    font-size: 30px;
+    margin: 0 auto 20px;
 }
 
 .features .info {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
 }
 
 .features .info .block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    width: 20%;
-    margin: 30px 2%;
 }
 
 .features .info .block img {
     margin-bottom: 15px;
 }
 
-.projects {
-    padding: 100px;
+.features .info .block .arrow {
+    margin-top: 15px;
 }
 
-.projects h3 {
-    font-size: 30px;
+.projects {
+    font-size: 17px;
     text-align: center;
+    margin: 100px auto;
 }
 
 .projects p {
-    margin: 40px 0;
-    text-align: center;
+    max-width: 600px;
+    margin: 20px auto 60px;
 }
 
 .projects .images {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 25px;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .projects .see--all {
-    float: none;
-    width: 60px;
-    text-align: center;
-    margin: 0 auto;
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
 }
 
 .email {
@@ -290,11 +288,12 @@ header nav ul li.btn a:hover, .email .block button:hover {
     background: #1C140F;
     margin-top: 30px;
     border-radius: 10px;
-    padding: 30px 3%;
-    width: 94%;
+    padding: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .email h4 {
@@ -303,74 +302,202 @@ header nav ul li.btn a:hover, .email .block button:hover {
 }
 
 .email .block p {
-    width: 500px;
+    max-width: 500px;
+}
+
+.email .block form {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
 }
 
 .email .block input {
-    background: white;
-    outline: none;
+    width: 100%;
+    padding: 20px 140px 20px 25px;
+    border-radius: 8px;
     border: 0;
-    border-radius: 5px;
-    width: 380px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    padding: 20px 30px;
-    position: relative;
-    right: -100px;
-    z-index: 1;
-    padding-right: 120px;
-}
-
-.email .block input::placeholder {
-    color: #898989;
+    outline: none;
 }
 
 .email .block button {
-    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 12px 22px;
+    border-radius: 6px;
     border: 0;
-    padding: 13px 17px;
+    cursor: pointer;
+    background: #FA9021;  
     color: white;
-    position: relative;
-    z-index: 2;
+    z-index: 2;           
+}
+
+.work {
+    padding: 80px 0;
+}
+
+.work .blocks {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.work .blocks .block {
+    width: 280px;
+    border-radius: 10px;
+    padding: 40px 30px;
+    background: #1C140F;
+}
+
+.feedback {
+    padding: 70px 0;
+    background: rgba(28, 20, 15, 1);
+}
+
+.feedback form {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+footer {
+    background: black;
+    padding: 50px 0;
+}
+
+footer .blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+footer > p {
+    text-align: center;
+}
+
+@media (max-width: 992px) {
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero {
+    flex-direction: column;   
+    align-items: center;
+    text-align: center;
+    }
+
+    .hero img {
+        align-self: center;      
+        margin: 150px auto 0;    
+        margin-right: 0;        
+        max-width: 280px;        
+        width: 100%;
+    }
+
+    .hero--info {
+        padding-top: 0;
+    }
+
+    .trending .games {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features .info .block {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .email .block {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .work .blocks {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .blocks {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-about {
+    flex-direction: column;
+    text-align: center;
+    }
+
+    .hero-about img {
+    margin-top: 40px;
+    max-width: 300px;
+    }
+
+    .feedback form .inline {
+    flex-direction: column;
+    }
 }
 
 .hero-about {
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    padding: 120px 0;
 }
 
 .hero-about .info {
-    width: 500px;
-    padding: 250px 0 ;
+    max-width: 500px;
 }
 
 .hero-about h1 {
-    margin-bottom: 15px;
-    font-size: 30px;
+    font-size: 40px;
+    margin: 20px 0;
+}
 
+.hero-about .info p:first-of-type {
+    margin-bottom: 30px;
+    font-size: 16px;
 }
 
 .hero-about .info .btn {
     margin-top: 20px;
-}
-
-.hero-about .info .btn img {
-    margin-left: 20px ;
-}
-
-.hero-about .info p:first-of-type {
-    margin-bottom: 50px;
-    font-size: 16px
-}
-
-.hero-about .info p span {
-    margin-left: 5px;
-    color: #E47500;
+    padding: 15px 30px;
+    font-size: 17px;
+    border-radius: 50px;
+    display: inline-block;
 }
 
 .hero-about img {
-    position: absolute;
-    right: -40px;
-    top:0
+    max-width: 600px;
+    width: 100%;
+}
+
+.hero-contacts {
+    padding: 120px 0;
+    text-align: center;
+}
+
+.hero-contacts h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero-contacts img {
+    max-width: 900px;
+    width: 100%;
+    margin: 60px auto 0;
 }
 
 .work {
@@ -385,10 +512,13 @@ header nav ul li.btn a:hover, .email .block button:hover {
 .work .blocks {
     display: flex;
     justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .work .blocks .block {
-    width: 25%;
+    flex: 1 1 30%;
+    min-width: 280px;
     border-radius: 10px;
     padding: 50px 35px;
     background: #1C140F;
@@ -396,11 +526,11 @@ header nav ul li.btn a:hover, .email .block button:hover {
 
 .work .blocks .block h3 {
     font-size: 20px;
-    margin: 20px 0px;
-
+    margin: 20px 0;
 }
 
 .work .blocks .block .badge {
+    display: inline-block;
     border-radius: 7px;
     padding: 10px 20px;
 }
@@ -415,22 +545,6 @@ header nav ul li.btn a:hover, .email .block button:hover {
 
 .work .blocks .block .badge.green {
     background: rgba(0, 220, 141, 0.11);
-}
-
-.hero-contacts h1 {
-    text-align: center;
-    font-size: 33px;
-    margin-top: 70px;
-    margin-bottom: 30px;
-}
-
-.hero-contacts img {
-    width: 70%;
-    margin: 80px 15%;
-}
-
-.hero-contacts p {
-    text-align: center;
 }
 
 .feedback {
@@ -450,17 +564,18 @@ header nav ul li.btn a:hover, .email .block button:hover {
 }
 
 .feedback form {
-    margin: 80px auto;
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
+    margin: 60px auto 0;
 }
 
 .feedback form .inline {
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
 }
 
-.feedback form .inline>div {
-    width: 50%;
+.feedback form .inline > div {
+    flex: 1;
 }
 
 .feedback form label {
@@ -468,21 +583,17 @@ header nav ul li.btn a:hover, .email .block button:hover {
     font-size: 14px;
 }
 
-.feedback form input, .feedback form textarea {
+.feedback form input,
+.feedback form textarea {
     background: rgba(255, 255, 255, 0.07);
     border-radius: 10px;
     border: 0.6px solid rgba(206, 206, 206, 1);
-    display: block;
-    width: 87%;
-    padding: 10px 15px;
+    width: 100%;
+    padding: 12px 15px;
     outline: none;
     color: white;
     margin-top: 7px;
     margin-bottom: 20px;
-}
-
-.feedback form .one-line {
-    width: 93%;
 }
 
 .feedback form textarea {
@@ -494,58 +605,12 @@ header nav ul li.btn a:hover, .email .block button:hover {
     background: #DC7000;
     border-radius: 5px;
     border: 0;
-    float: right;
     cursor: pointer;
     color: white;
     padding: 15px 35px;
-    transition: all 500ms ease;
+    transition: 0.3s;
 }
 
 .feedback form button:hover {
-    background: red;
-}
-
-footer {
-    background: black;
-    padding: 50px 0;
-}
-
-footer .blocks {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-footer .blocks p {
-    width: 300px;
-    margin: 15px 0;
-}
-
-footer .blocks h4 {
-    font-weight: 500;
-    font-size: 17px
-}
-
-footer .blocks ul {
-    list-style: none;
-}
-
-footer .blocks ul li {
-    margin-top: 7px;
-    opacity: 0.8;
-}
-
-footer .blocks img {
-    padding-top: 90px;
-}
-
-footer hr {
-    margin: 30px 0;
-    border: 0;
-    height: 0.6px;
-    background: grey;
-}
-
-footer > p {
-    text-align: center;
+    background: #a94e00;
 }
